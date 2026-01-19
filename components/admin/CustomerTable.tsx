@@ -136,8 +136,8 @@ export default function CustomerTable({ customers: initialCustomers = [] }: Cust
   });
 
   const sortedCustomers = [...filteredCustomers].sort((a, b) => {
-    const aValue = a[sortField];
-    const bValue = b[sortField];
+    const aValue = a[sortField as keyof Customer];
+    const bValue = b[sortField as keyof Customer];
 
     if (typeof aValue === "string" && typeof bValue === "string") {
       return sortDirection === "asc"

@@ -146,8 +146,8 @@ export default function OrderTable({ orders: initialOrders = [] }: OrderTablePro
   });
 
   const sortedOrders = [...filteredOrders].sort((a, b) => {
-    const aValue = a[sortField];
-    const bValue = b[sortField];
+    const aValue = a[sortField as keyof Order];
+    const bValue = b[sortField as keyof Order];
 
     if (typeof aValue === "string" && typeof bValue === "string") {
       return sortDirection === "asc"

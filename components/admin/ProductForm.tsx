@@ -39,9 +39,15 @@ const productSchema = z.object({
 
 type ProductFormData = z.infer<typeof productSchema>;
 
+interface ProductFormDataWithArrays extends ProductFormData {
+  categories: string[];
+  colors: string[];
+  features: string[];
+}
+
 interface ProductFormProps {
-  initialData?: Partial<ProductFormData>;
-  onSubmit: (data: ProductFormData) => Promise<void>;
+  initialData?: Partial<ProductFormDataWithArrays>;
+  onSubmit: (data: ProductFormDataWithArrays) => Promise<void>;
   onCancel: () => void;
 }
 
@@ -79,7 +85,7 @@ export default function ProductForm({ initialData, onSubmit, onCancel }: Product
   const handleFormSubmit = async (data: ProductFormData) => {
     setIsSubmitting(true);
     try {
-      await onSubmit({ ...data, categories, colors, features } as any);
+      await onSubmit({ ...data, categories, colors, features });
     } finally {
       setIsSubmitting(false);
     }
