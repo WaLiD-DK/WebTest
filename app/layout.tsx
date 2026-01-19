@@ -4,8 +4,8 @@ import { Toaster } from '@/components/ui/toast'
 import './globals.css'
 import { SITE_CONFIG } from '@/lib/constants'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap', fallback: ['sans-serif'] })
+const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', display: 'swap', fallback: ['serif'] })
 
 export const metadata: Metadata = {
   title: {
