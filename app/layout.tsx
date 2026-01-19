@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
+import { Toaster } from '@/components/ui/toast'
 import './globals.css'
 import { SITE_CONFIG } from '@/lib/constants'
 
@@ -39,6 +40,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
         {children}
+        <Toaster />
       </body>
     </html>
   )
