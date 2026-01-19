@@ -101,7 +101,7 @@ export default function PaymentForm({
         <Label htmlFor="paymentMethod">Payment Method</Label>
         <Select
           value={paymentMethod}
-          onValueChange={(value) => setValue('paymentMethod', value as any)}
+          onValueChange={(value) => setValue('paymentMethod', value as 'card' | 'paypal' | 'applePay')}
         >
           <SelectTrigger id="paymentMethod" className="mt-1.5">
             <SelectValue />
